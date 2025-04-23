@@ -28,7 +28,7 @@ const PincodeLookUp = () => {
         } else {
             setPostOffice([]);
             if (pincode.length > 0) {
-                setError("Please enter a valid pincde");
+                setError("Please enter a valid pincode");
             } else {
                 setError("");
             }
@@ -36,24 +36,25 @@ const PincodeLookUp = () => {
     }, [pincode]);
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Enter PINCODE"
-                value={pincode}
-                onChange={(e) => setPincode(e.target.value)}
-            />
-            {error && <p>{error}</p>}
-            {/* if(error){<p>{error}</p>} */}
+        <div id="display">
+            <div id="pininput">
+                <input
+                    type="text"
+                    placeholder="Enter PINCODE"
+                    value={pincode}
+                    onChange={(e) => setPincode(e.target.value)}
+                />
+                {error && <p>{error}</p>}
+                {/* if(error){<p>{error}</p>} */}
+            </div>
 
             {postOffice.length > 0 && (
-                <div>
+                <div id="offices">
                     {postOffice.map((office, ind) => (
                         <div key={ind}>
-                            <h3>{office.Name}</h3>
-                            <p>{office.District}</p>
-                            <p>{office.State}</p>
-                            <hr />
+                            <h3>Office: {office.Name}</h3>
+                            <p>District: {office.District}</p>
+                            <p>State: {office.State}</p>
                         </div>
                     ))}
                 </div>
@@ -64,4 +65,4 @@ const PincodeLookUp = () => {
 
 export default PincodeLookUp;
 
-//named export
+//default export
